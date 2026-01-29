@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LARA — Agente de RRHH</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Lara_Montmelo.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-wrap">
+          <img src="GrupoCadarso_Logo.webp" alt="Geresa" />
+        </div>
+        <div class="brand-text">
+          <strong>LARA — Agente de RRHH</strong>
+          <span>Grupo Cadarso · Montmelo</span>
+        </div>
+      </div>
+
+      <div class="status">
+        <span class="dot"></span>
+        En línea
+      </div>
+    </header>
+
+    <!-- Chat -->
+    <main class="chat-wrapper">
+      <div class="chat-card">
+
+        <!-- Loader -->
+        <div class="loader" id="loader">
+          <div class="loader-box">
+            <span>Cargando LARA</span>
+            <div class="pulse"></div>
+            <div class="pulse"></div>
+            <div class="pulse"></div>
+          </div>
+        </div>
+
+        <!-- Copilot iframe -->
+        <iframe
+          id="copilotFrame"
+          src="https://copilotstudio.microsoft.com/environments/Default-385d7f4b-7138-4423-ab1d-350247a932ab/bots/cr4ca_laraAgenteRrhhMontmelo/webchat?__version__=2"
+          title="LARA — Agente de RRHH"
+          sandbox="allow-same-origin allow-scripts allow-forms"
+          loading="lazy">
+        </iframe>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    const iframe = document.getElementById("copilotFrame");
+    const loader = document.getElementById("loader");
+
+    iframe.addEventListener("load", () => {
+      loader.classList.add("hidden");
+    });
+
+    // Safety fallback
+    setTimeout(() => {
+      loader.classList.add("hidden");
+    }, 10000);
+  </script>
+</body>
+</html>
